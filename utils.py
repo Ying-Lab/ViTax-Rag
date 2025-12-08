@@ -99,7 +99,7 @@ def find_blast_augument(gene,id, blast_path,length = 4000, bitscore = None, eval
        seq = getse(file_name=file_name)
     except Exception:
         return find_blast(gene,id, blast_path,length)
-    seq = seq[send:]
+    seq = seq[send:send + length2]
     gene = gene+seq
     return gene
 

@@ -37,7 +37,7 @@ def main():
     parser.add_argument('--window_size', type=int, default=400, help='Sliding step size')
     parser.add_argument('--chunk_size', type=int, default=2000, help='Chunk size for splitting')
     parser.add_argument('--batch_size', type=int, default=64, help='Batch size')
-    parser.add_argument('--rc', type=parse_bool, default=True, help='Use reverse complement')
+    parser.add_argument('--rc', type=parse_bool, default=True, help='Use bidirectional prediction')
     parser.add_argument('--augment', type=parse_bool, default=True, help='Use BLAST augmentation')
     parser.add_argument('--augment_len', type=int, default=4000, help='Augmentation length')
     parser.add_argument('--blast_db', type = str, default='./data/blast/blastdb', help='Blast db')
