@@ -3,7 +3,52 @@
 ## Introduction
 ViTax-RAG is a hybrid viral taxonomy classification framework that integrates BLAST-based retrieval with a Bi-Hyena genomic language model to achieve adaptive, accurate, and robust taxonomic assignment from metagenomic sequences.
 ## Installation 
+ViTax-RAG can be installed **either via pip (recommended)** or **from source**.
 
+### External Dependency: NCBI BLAST+ (Optional but Recommended)
+
+ViTax-RAG optionally uses NCBI BLAST+ for retrieval-augmented inference.
+
+Install via conda (recommended)
+```bash
+conda install -c bioconda blast
+```
+
+Verify installation:
+```bash
+which blastn
+blastn -version
+```
+
+### Option 1️⃣ (Recommended): Install via `pip`
+
+```bash
+pip install vitax-rag
+```
+
+This installs the ViTax-RAG command-line tool:
+
+```bash
+vitax-rag --help
+```
+### Required External Data
+ViTax-RAG requires external BLAST database files, which are not packaged
+inside the Python wheel.
+```bash
+git clone https://github.com/Ying-Lab/ViTax-Rag.git
+cd ViTax-Rag
+```
+
+### Quick Start
+Basic run (automatic device selection)
+```bash
+vitax-rag \
+  --contigs test_contigs.fasta \
+  --data_dir ./data \
+  --out result.txt
+```
+
+### Option 2️⃣ : Install from Source (Development Mode)
 Install dependencies:
 ```powershell
 git clone https://github.com/Ying-Lab/ViTax-Rag.git
@@ -66,3 +111,6 @@ python predict.py --contigs test_contigs.fasta --chunk_size 2000 --window_size 4
 - Ordering: lines follow the order of sequences in the input FASTA
 - Device and augmentation: enabling `--rc` (reverse complement) and `--augment` (BLAST) can change predictions and confidence
 - Output file: written to the path specified by `--out` and printed as `Done, please check the output file: <path>`
+
+
+
